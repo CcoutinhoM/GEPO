@@ -49,7 +49,7 @@ function InfoPessoal() {
   const [dataCertificado, setdataCertificado] = React.useState('');
   const [telefone, settelefone] = React.useState('');
 
-  React.useEffect(() => {
+  React.useEffect(() => {    session?.user?.id = '';
     const timer = setTimeout(() => setProgress(33.34), 100)
     return () => clearTimeout(timer)
   }, [])
