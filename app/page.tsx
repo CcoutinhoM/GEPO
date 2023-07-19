@@ -9,7 +9,7 @@ import { buttonVariants } from "@/components/ui/button"
 import { cn } from "@/lib/utils"
 import { Button } from "@/components/ui/button"
 import { useRouter, usePathname } from 'next/navigation';
-import { Image } from "next/image";
+import Image from "next/image";
 import {
   Card,
   CardContent,

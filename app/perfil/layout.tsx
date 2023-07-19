@@ -3,7 +3,7 @@ import React from 'react'
 import { Button } from "@/components/ui/button"
 import { useRouter, usePathname } from 'next/navigation';
 import { signIn, signOut, useSession, getProviders } from "next-auth/react";
-import { Image } from "next/image"
+import Image from "next/image"
 import {
   Card,
   CardContent,

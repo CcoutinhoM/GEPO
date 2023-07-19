@@ -4,7 +4,7 @@ import { Button } from "@/components/ui/button"
 import axios from 'axios';
 import { signIn, signOut, useSession, getProviders } from "next-auth/react";
 import { Dropdown, Text, Row, Modal, useModal, Grid, Loading } from "@nextui-org/react";
-import { Image } from "next/image";
+import Image from "next/image";
 import {
   Card,
   CardContent,
