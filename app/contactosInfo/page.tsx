@@ -103,7 +103,6 @@ function ContactosInfo() {
       const data = await response.json();
       data.map((fonecedor: any) => {
         try {
-          async function jfasda() {
             const response2 = await fetch(`api/rota/${fonecedor._id}`, {
               method: 'PATCH',
               body: JSON.stringify({
@@ -122,12 +121,8 @@ function ContactosInfo() {
                 dataCertificado: fonecedor.dataCertificado,
                 telefone,
               })
-          })
-          if (response2.ok) {
-            console.log(response2);
-        }
-          }
-          jfasda();
+              })
+              
       } catch (error) {
           console.log(error);
         }finally {
