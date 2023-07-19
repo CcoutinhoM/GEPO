@@ -105,7 +105,7 @@ export function SiteHeader() {
       setDadosFornecedor(data);
     }
     if(session?.user?.id) fetchPosts(); 
-  }, [])
+  }, [session?.user?.id])
 
     useEffect(() => {
         const setUpProviders = async () => {
@@ -393,7 +393,7 @@ export function SiteHeader() {
                   </NavigationMenuList>
                   {toggleDropdown && (
                   <div className="absolute right-0 top-full mt-3 flex w-full min-w-[210px] flex-col items-end justify-end gap-2 rounded-lg bg-black p-5">
-                    <Link href={"/perfil"} className="font-inter text-sm font-medium text-gray-700 hover:text-gray-500" onClick={() => setToggleDropdown(false)} href="#" legacyBehavior passHref>
+                    <Link href={"/perfil"} className="font-inter text-sm font-medium text-gray-700 hover:text-gray-500" onClick={() => setToggleDropdown(false)} legacyBehavior passHref>
                       Perfil
                     </Link>
                     <Link className="font-inter text-sm font-medium text-gray-700 hover:text-gray-500" onClick={() => setToggleDropdown(false)} href="#" legacyBehavior passHref>

@@ -2,6 +2,7 @@
 import React from 'react'
 import { Button } from "@/components/ui/button"
 import { useRouter, usePathname } from 'next/navigation';
+import { Image } from 'next/image';
 import { signIn, signOut, useSession, getProviders } from "next-auth/react";
 import {
   Card,
@@ -30,22 +31,28 @@ function PerfilFornecedor({ params }) {
   const [meusServicos, setMeusServicos] = React.useState([]);
   
   React.useEffect(() => {
-    const fetchPosts = async () => {
-      const response = await fetch(`/api/fornecedores/${params.id}`);
-      const data = await response.json();
-      setDadosFornecedor(data);
-    }
-    fetchPosts();
-  }, [])
+    try {
+            const fetchPosts = async () => {
+        
+            const response = await fetch(`/api/fornecedores/${params?.id}`);
+            const data = await response.json();
+            setDadosFornecedor(data);
+            }
+            fetchPosts();
+        } catch (error) {
+            console.log(error)
+        }
+    
+  }, [params?.id])
 
    React.useEffect(() => {
     const fetchPosts = async () => {
-      const response = await fetch(`/api/servicos/${params.id}`);
+      const response = await fetch(`/api/servicos/${params?.id}`);
       const data = await response.json();
       setMeusServicos(data);
     }
     fetchPosts();
-  }, [])
+  }, [params?.id])
 
 
   function perfilInfo() {
@@ -63,7 +70,7 @@ function PerfilFornecedor({ params }) {
             {dadosFornecedor.length > 0 && dadosFornecedor.map((fornecedor) => (
                 <>
                     <div className='flex flex-row content-center justify-center rounded-full text-center'>
-                    <img className='rounded-full' width={100} height={100} src={fornecedor.creator.image} alt="Perfil Image" />              
+                    <Image className='rounded-full' width={100} height={100} src={fornecedor.creator.image} alt="Perfil Image" />              
                     </div>
                     <br />
                     <div className='text-center'>
@@ -219,7 +226,7 @@ function PerfilFornecedor({ params }) {
                         </CardHeader>
                         <CardContent>
                           <div className='flex flex-row content-center justify-center text-center'>
-                            <img className='rounded-md' width={60} height={60} src={servicos.imagem} alt="Perfil Image" />              
+                            <Image className='rounded-md' width={60} height={60} src={servicos.imagem} alt="Perfil Image" />              
                           </div>
                         </CardContent>
                         <CardFooter className="flex justify-between">

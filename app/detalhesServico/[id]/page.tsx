@@ -3,6 +3,7 @@ import React from 'react'
 import { Button } from "@/components/ui/button"
 import { signIn, signOut, useSession, getProviders } from "next-auth/react";
 import { Dropdown, Text, Row, Modal, useModal, Grid, Loading } from "@nextui-org/react";
+import { Image } from "next/image";
 import {
   Card,
   CardContent,
@@ -56,7 +57,7 @@ function DetalhesServicos({ params }) {
       
     }
     fetchPosts();
-  }, [])
+  }, [params?.id])
   return (
      <div className="container mt-4 flex gap-4">
       <aside>
@@ -71,7 +72,7 @@ function DetalhesServicos({ params }) {
                 <CardContent>
                   
                       <div key={autor.creator._id} className='flex flex-row content-center justify-center rounded-full text-center'>
-                        <img className='rounded-full' width={100} height={100} src={autor.creator.image} alt="Perfil Image" />              
+                        <Image className='rounded-full' width={100} height={100} src={autor.creator.image} alt="Perfil Image" />              
                         </div>
                         <br />
                         <div className='text-center'>
@@ -111,14 +112,14 @@ function DetalhesServicos({ params }) {
                         </CardHeader>
                         <CardContent>
                           <div className='flex flex-row content-center justify-center text-center'>
-                            <img className='rounded-md' width={150} height={150} src={servico.imagem} alt="Perfil Image" />              
+                            <Image className='rounded-md' width={150} height={150} src={servico.imagem} alt="Perfil Image" />              
                           </div>
                         </CardContent>
                         <CardFooter className="flex justify-between">
                           <div className='flex flex-row content-center justify-center gap-4 text-center'>
-                            <img className='cursor-pointer rounded-md' width={30} height={30} src={servico.imagem} alt="Perfil Image" />
-                             <img className='cursor-pointer rounded-md' width={30} height={30} src={servico.imagem} alt="Perfil Image" />
-                              <img className='cursor-pointer rounded-md' width={30} height={30} src={servico.imagem} alt="Perfil Image" />            
+                            <Image className='cursor-pointer rounded-md' width={30} height={30} src={servico.imagem} alt="Perfil Image" />
+                             <Image className='cursor-pointer rounded-md' width={30} height={30} src={servico.imagem} alt="Perfil Image" />
+                              <Image className='cursor-pointer rounded-md' width={30} height={30} src={servico.imagem} alt="Perfil Image" />            
                           </div>
                         </CardFooter>
                     </Card>

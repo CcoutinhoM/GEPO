@@ -54,14 +54,14 @@ function Mensagens({ params }) {
 
   React.useEffect(() => {
     const fetchPosts = async () => {
-      const response = await fetch(`/api/servicoUnico/${params.id}`);
+      const response = await fetch(`/api/servicoUnico/${params?.id}`);
       const data = await response.json();
       setServicoUnico(data);
       setServicoAutor(data);
       
     }
     if(session?.user?.id) fetchPosts();
-  }, [])
+  }, [params?.id, session?.user?.id])
   return (
      <div className="container mt-4 flex gap-4">
       <aside>

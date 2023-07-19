@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button"
 import axios from 'axios';
 import { signIn, signOut, useSession, getProviders } from "next-auth/react";
 import { Dropdown, Text, Row, Modal, useModal, Grid, Loading } from "@nextui-org/react";
+import { Image } from "next/image";
 import {
   Card,
   CardContent,
@@ -252,7 +253,7 @@ function NovoServico() {
                     </HoverCard>
                     {!!images?.length && images.map(link => (
                       <div key={link} className="h-24 rounded-lg p-4 shadow-sm">
-                        <img src={link} className="rounded-lg"/>        
+                        <Image src={link} className="rounded-lg" alt="Link"/>        
                         </div>
                     ))}
                     <label className="flex h-24 w-24 flex-col items-center justify-center gap-1 rounded-sm border text-center text-sm">

@@ -9,6 +9,7 @@ import { buttonVariants } from "@/components/ui/button"
 import { cn } from "@/lib/utils"
 import { Button } from "@/components/ui/button"
 import { useRouter, usePathname } from 'next/navigation';
+import { Image } from "next/image";
 import {
   Card,
   CardContent,
@@ -60,7 +61,7 @@ export default function IndexPage() {
                         </CardHeader>
                         <CardContent>
                           <div className='flex flex-row content-center justify-center text-center'>
-                            <img className='rounded-md' width={60} height={60} src={servicos.imagem} alt="Perfil Image" />              
+                            <Image className='rounded-md' width={60} height={60} src={servicos.imagem} alt="Perfil Image" />              
                           </div>
                         </CardContent>
                         <CardFooter className="flex justify-between">

@@ -3,6 +3,7 @@ import React from 'react'
 import { Button } from "@/components/ui/button"
 import { useRouter, usePathname } from 'next/navigation';
 import { signIn, signOut, useSession, getProviders } from "next-auth/react";
+import { Image } from "next/image"
 import {
   Card,
   CardContent,
@@ -36,7 +37,7 @@ function LayOut() {
       setDadosFornecedor(data);
     }
     if(session?.user?.id) fetchPosts();
-  }, [])
+  }, [session?.user?.id])
 
    React.useEffect(() => {
     const fetchPosts = async () => {
@@ -45,7 +46,7 @@ function LayOut() {
       setMeusServicos(data);
     }
     if(session?.user?.id) fetchPosts();
-  }, [])
+  }, [session?.user?.id])
 
 
   function perfilInfo() {
@@ -61,7 +62,7 @@ function LayOut() {
           </CardHeader>
           <CardContent>
             <div className='flex flex-row content-center justify-center rounded-full text-center'>
-              <img className='rounded-full' width={100} height={100} src={session?.user?.image} alt="Perfil Image" />              
+              <Image className='rounded-full' width={100} height={100} src={session?.user?.image} alt="Perfil Image" />              
             </div>
             <br />
             <div className='text-center'>
@@ -214,7 +215,7 @@ function LayOut() {
                         </CardHeader>
                         <CardContent>
                           <div className='flex flex-row content-center justify-center text-center'>
-                            <img className='rounded-md' width={60} height={60} src={servicos.imagem} alt="Perfil Image" />              
+                            <Image className='rounded-md' width={60} height={60} src={servicos.imagem} alt="Perfil Image" />              
                           </div>
                         </CardContent>
                         <CardFooter className="flex justify-between">
