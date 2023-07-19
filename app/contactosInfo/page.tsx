@@ -181,7 +181,7 @@ function ContactosInfo() {
                         </Grid.Container>
                     </div> 
                     )}            
-                    <Button onClick={() => contactoInfo(session?.user.id)} variant="outline">Finalizar</Button>
+                    <Button onClick={() => contactoInfo(session && session?.user.id)} variant="outline">Finalizar</Button>
                 </div>
                 </CardContent>
             </Card>
