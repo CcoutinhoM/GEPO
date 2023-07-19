@@ -96,7 +96,7 @@ function ContactosInfo() {
     return () => clearTimeout(timer)
   }, [])
 
-  function contactoInfo(idddd) {
+  function contactoInfo(idddd: any) {
     setProcessando(true);
     const fetchPosts = async () => {
       const response = await fetch(`/api/servicosTodos/${idddd}/servicos`);
