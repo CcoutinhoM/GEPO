@@ -24,7 +24,7 @@ import {
 
  
 
-function PerfilFornecedor({ params }) {
+function PerfilFornecedor({ params: any }) {
   const {data: session } = useSession();  
   const router = useRouter();
   const [dadosFornecedor, setDadosFornecedor] = React.useState([]);

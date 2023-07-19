@@ -45,7 +45,7 @@ import { ToastAction } from "@/components/ui/toast"
 import { useToast } from "@/components/ui/use-toast"
 
 
-function Mensagens({ params }) {
+function Mensagens({ params: any }) {
   const {data: session } = useSession();
   const [servicoUnico, setServicoUnico] = React.useState([]);
   const [servicoAutor, setServicoAutor] = React.useState([]);
