@@ -49,7 +49,7 @@ export default function IndexPage() {
           Adicionados Recentimente
         </p>
       </div>
-      <div className="justify-center grid lg:grid-cols-4 md:grid-cols-2 sm:grid-cols-1 gap-4">
+      <div className="grid justify-center gap-4 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-4">
         {servicoAutor.length > 0 && servicoAutor.map((servicos) => (
             <Card className="w-[250px]">
                         <CardHeader>
@@ -59,7 +59,7 @@ export default function IndexPage() {
                           </CardDescription>
                         </CardHeader>
                         <CardContent>
-                          <div className='flex flex-row text-center content-center justify-center'>
+                          <div className='flex flex-row content-center justify-center text-center'>
                             <img className='rounded-md' width={60} height={60} src={servicos.imagem} alt="Perfil Image" />              
                           </div>
                         </CardContent>

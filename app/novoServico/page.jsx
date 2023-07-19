@@ -145,7 +145,7 @@ function NovoServico() {
         }
   }
   return (
-    <div className="container flex gap-4 mt-4">
+    <div className="container mt-4 flex gap-4">
       <main className="flex-1">
         <div>
             <Card className="w-full">
@@ -251,12 +251,12 @@ function NovoServico() {
                         </HoverCardContent>
                     </HoverCard>
                     {!!images?.length && images.map(link => (
-                      <div key={link} className="h-24 p-4 shadow-sm rounded-lg">
+                      <div key={link} className="h-24 rounded-lg p-4 shadow-sm">
                         <img src={link} className="rounded-lg"/>        
                         </div>
                     ))}
-                    <label className="w-24 h-24 border text-center rounded-sm flex flex-col gap-1 text-sm items-center justify-center">
-                      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                    <label className="flex h-24 w-24 flex-col items-center justify-center gap-1 rounded-sm border text-center text-sm">
+                      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="h-6 w-6">
                         <path stroke-linecap="round" stroke-linejoin="round" d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5m-13.5-9L12 3m0 0l4.5 4.5M12 3v13.5" />
                       </svg>
                       <div>
@@ -266,9 +266,9 @@ function NovoServico() {
                     </label> 
                 </div>
                 <br />
-                <div className='flex flex-row text-center justify-end rounded-full'> 
+                <div className='flex flex-row justify-end rounded-full text-center'> 
                 {processando && (
-                        <div className='justify-center items-center'>
+                        <div className='items-center justify-center'>
                         <Grid.Container gap={2}>
                             <Grid>
                                 <Loading color="primary"></Loading>

@@ -63,7 +63,7 @@ function Mensagens({ params }) {
     if(session?.user?.id) fetchPosts();
   }, [])
   return (
-     <div className="container flex gap-4 mt-4">
+     <div className="container mt-4 flex gap-4">
       <aside>
         <Tabs defaultValue="account" className="w-[400px]">
             <TabsList className="grid w-full grid-cols-2">
@@ -110,7 +110,7 @@ function Mensagens({ params }) {
               <CardDescription></CardDescription>
             </CardHeader>
             <CardContent>
-                   <Card className="w-[100%] mt-4">
+                   <Card className="mt-4 w-[100%]">
                         <CardHeader>
                           <CardTitle>Chat</CardTitle>
                           <CardDescription>

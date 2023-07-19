@@ -49,7 +49,7 @@ function DetalhesServicos({ params }) {
 
   React.useEffect(() => {
     const fetchPosts = async () => {
-      const response = await fetch(`/api/servicoUnico/${params.id}`);
+      const response = await fetch(`/api/servicoUnico/${params?.id}`);
       const data = await response.json();
       setServicoUnico(data);
       setServicoAutor(data);
@@ -58,9 +58,9 @@ function DetalhesServicos({ params }) {
     fetchPosts();
   }, [])
   return (
-     <div className="container flex gap-4 mt-4">
+     <div className="container mt-4 flex gap-4">
       <aside>
-        <Card className="w-[350px] mb-4">
+        <Card className="mb-4 w-[350px]">
           <CardHeader>
             <CardTitle className='text-center'>Autor</CardTitle>
             <CardDescription></CardDescription>
@@ -70,7 +70,7 @@ function DetalhesServicos({ params }) {
               <>
                 <CardContent>
                   
-                      <div key={autor.creator._id} className='flex flex-row text-center content-center justify-center rounded-full'>
+                      <div key={autor.creator._id} className='flex flex-row content-center justify-center rounded-full text-center'>
                         <img className='rounded-full' width={100} height={100} src={autor.creator.image} alt="Perfil Image" />              
                         </div>
                         <br />
@@ -110,15 +110,15 @@ function DetalhesServicos({ params }) {
                           </CardDescription>
                         </CardHeader>
                         <CardContent>
-                          <div className='flex flex-row text-center content-center justify-center'>
+                          <div className='flex flex-row content-center justify-center text-center'>
                             <img className='rounded-md' width={150} height={150} src={servico.imagem} alt="Perfil Image" />              
                           </div>
                         </CardContent>
                         <CardFooter className="flex justify-between">
-                          <div className='flex flex-row text-center content-center justify-center gap-4'>
-                            <img className='rounded-md cursor-pointer' width={30} height={30} src={servico.imagem} alt="Perfil Image" />
-                             <img className='rounded-md cursor-pointer' width={30} height={30} src={servico.imagem} alt="Perfil Image" />
-                              <img className='rounded-md cursor-pointer' width={30} height={30} src={servico.imagem} alt="Perfil Image" />            
+                          <div className='flex flex-row content-center justify-center gap-4 text-center'>
+                            <img className='cursor-pointer rounded-md' width={30} height={30} src={servico.imagem} alt="Perfil Image" />
+                             <img className='cursor-pointer rounded-md' width={30} height={30} src={servico.imagem} alt="Perfil Image" />
+                              <img className='cursor-pointer rounded-md' width={30} height={30} src={servico.imagem} alt="Perfil Image" />            
                           </div>
                         </CardFooter>
                     </Card>
@@ -140,7 +140,7 @@ function DetalhesServicos({ params }) {
               </div>    
                 )
               )}      
-                    <Card className="w-[100%] mt-4">
+                    <Card className="mt-4 w-[100%]">
                         <CardHeader>
                           <CardTitle>Comentários</CardTitle>
                           <CardDescription>

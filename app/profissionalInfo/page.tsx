@@ -164,10 +164,10 @@ function ProfissionalInfo() {
   }
 
   return (
-    <div className="container flex gap-4 mt-4">
+    <div className="container mt-4 flex gap-4">
       <main className="flex-1">
         <div>
-            <Progress value={progress} className="w-full mb-2" />
+            <Progress value={progress} className="mb-2 w-full" />
             <Card className="w-full">
                 <CardHeader>
                 <CardTitle>2. Informação Profissional</CardTitle>
@@ -285,7 +285,7 @@ function ProfissionalInfo() {
                             Adicione alguma Informação relativa a sua formação para ajudar ao comprador a conhecer-te melhor.
                         </HoverCardContent>
                     </HoverCard>
-                    <div className='flex flex-col gap-4 w-full'>
+                    <div className='flex w-full flex-col gap-4'>
                         <Input 
                           value={educacaoPais}
                           onChange={(e) => seteducacaoPais(e.target.value)} 
@@ -296,7 +296,7 @@ function ProfissionalInfo() {
                           onChange={(e) => setnomeInstituicao(e.target.value)}
                           type="text" placeholder="Nome da Instituição" />
                     </div>    
-                    <div className='flex flex-col gap-4 w-full'>
+                    <div className='flex w-full flex-col gap-4'>
                         <Input 
                           value={grauAdquirido}
                           onChange={(e) => setgrauAdquirido(e.target.value)}
@@ -317,7 +317,7 @@ function ProfissionalInfo() {
                             Adicione alguma Informação relativa às suas certificações para ajudar ao comprador a conhecer-te melhor.
                         </HoverCardContent>
                     </HoverCard>
-                    <div className='flex flex-col gap-4 w-full'>
+                    <div className='flex w-full flex-col gap-4'>
                         <Input 
                           value={certificadoPor}
                           onChange={(e) => setcertificadoPor(e.target.value)}
@@ -332,9 +332,9 @@ function ProfissionalInfo() {
                     
                 </div>
                 <br />
-                <div className='flex flex-row text-center justify-end rounded-full'>
+                <div className='flex flex-row justify-end rounded-full text-center'>
                 {processando && (
-                        <div className='justify-center items-center'>
+                        <div className='items-center justify-center'>
                         <Grid.Container gap={2}>
                             <Grid>
                                 <Loading color="primary"></Loading>

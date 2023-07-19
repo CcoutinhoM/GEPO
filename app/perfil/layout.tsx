@@ -52,15 +52,15 @@ function LayOut() {
     router.push('/infoPessoal');
   }
   return (
-    <div className="container flex gap-4 mt-4">
+    <div className="container mt-4 flex gap-4">
       <aside>
-        <Card className="w-[350px] mb-4">
+        <Card className="mb-4 w-[350px]">
           <CardHeader>
             <CardTitle className='text-center'>Dados da Conta</CardTitle>
             <CardDescription></CardDescription>
           </CardHeader>
           <CardContent>
-            <div className='flex flex-row text-center content-center justify-center rounded-full'>
+            <div className='flex flex-row content-center justify-center rounded-full text-center'>
               <img className='rounded-full' width={100} height={100} src={session?.user?.image} alt="Perfil Image" />              
             </div>
             <br />
@@ -79,7 +79,7 @@ function LayOut() {
         </Card>
         { dadosFornecedor.length > 0 && (
           <>
-            <Card className="w-[350px] mb-4">
+            <Card className="mb-4 w-[350px]">
               <CardHeader>
                 <CardTitle className='text-center'>Infromação Pessoal</CardTitle>
                 <CardDescription></CardDescription>
@@ -104,7 +104,7 @@ function LayOut() {
                 <Button  variant="outline">Editar</Button>
               </CardFooter>
             </Card>
-            <Card className="w-[350px] mb-4">
+            <Card className="mb-4 w-[350px]">
               <CardHeader>
                 <CardTitle className='text-center'>Serviço Prestado</CardTitle>
                 <CardDescription></CardDescription>
@@ -129,7 +129,7 @@ function LayOut() {
                 <Button  variant="outline">Editar</Button>
               </CardFooter>
             </Card>
-            <Card className="w-[350px] mb-4">
+            <Card className="mb-4 w-[350px]">
               <CardHeader>
                 <CardTitle className='text-center'>Infromação Académica</CardTitle>
                 <CardDescription></CardDescription>
@@ -162,7 +162,7 @@ function LayOut() {
                 <Button  variant="outline">Editar</Button>
               </CardFooter>
             </Card>
-            <Card className="w-[350px] mb-4">
+            <Card className="mb-4 w-[350px]">
               <CardHeader>
                 <CardTitle className='text-center'>Certificado</CardTitle>
                 <CardDescription></CardDescription>
@@ -201,8 +201,8 @@ function LayOut() {
             <CardContent>
               {dadosFornecedor.length > 0 ? (
                 <>
-                  <p className='text-lg text-center mb-4'>Meus Serviços</p>
-                  <div className="justify-center grid lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-2 gap-4">
+                  <p className='mb-4 text-center text-lg'>Meus Serviços</p>
+                  <div className="grid justify-center gap-4 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3">
                 {meusServicos.length > 0 && meusServicos.map((servicos) =>
                   <>
                     <Card className="w-[250px]">
@@ -213,7 +213,7 @@ function LayOut() {
                           </CardDescription>
                         </CardHeader>
                         <CardContent>
-                          <div className='flex flex-row text-center content-center justify-center'>
+                          <div className='flex flex-row content-center justify-center text-center'>
                             <img className='rounded-md' width={60} height={60} src={servicos.imagem} alt="Perfil Image" />              
                           </div>
                         </CardContent>
@@ -247,7 +247,7 @@ function LayOut() {
                     <p>Gostaria de aumentar o seu público para vendas?</p>
                   </div>
                   <br />
-                  <div className='flex flex-row text-center content-center justify-center rounded-full'>                
+                  <div className='flex flex-row content-center justify-center rounded-full text-center'>                
                     <Button onClick={perfilInfo} variant="outline">Tone-se um fornecedor</Button>
                   </div>
                 </>

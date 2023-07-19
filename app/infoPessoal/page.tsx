@@ -86,10 +86,10 @@ function InfoPessoal() {
   
   
   return (
-    <div className="container flex gap-4 mt-4">
+    <div className="container mt-4 flex gap-4">
       <main className="flex-1">
         <div>
-            <Progress value={progress} className="w-full mb-2" />
+            <Progress value={progress} className="mb-2 w-full" />
             <Card className="w-full">
                 <CardHeader>
                 <CardTitle>1. Informação Pessoal</CardTitle>
@@ -145,9 +145,9 @@ function InfoPessoal() {
                       placeholder="Escrever texto da descrição pessoal." />
                 </div>
                 <br />
-                <div className='flex flex-row text-center justify-end rounded-full'>
+                <div className='flex flex-row justify-end rounded-full text-center'>
                         {processando && (
-                        <div className='justify-center items-center'>
+                        <div className='items-center justify-center'>
                         <Grid.Container gap={2}>
                             <Grid>
                                 <Loading color="primary"></Loading>

@@ -115,13 +115,13 @@ export function SiteHeader() {
         setUpProviders();
     },[]);
   return (
-    <header className="bg-background sticky top-0 z-40 w-full border-b">
+    <header className="sticky top-0 z-40 w-full border-b bg-background">
       <div className="container flex h-16 items-center space-x-4 sm:justify-between sm:space-x-0">
         <MainNav items={siteConfig.mainNav} />
         <div className="flex flex-1 items-center justify-end space-x-4">
           <nav className="flex items-center space-x-1">
             {/* Desktop Navigation */}
-            <div className="sm:flex hidden">
+            <div className="hidden sm:flex">
               {session?.user ? (
                 <>
                 <NavigationMenu>
@@ -181,7 +181,7 @@ export function SiteHeader() {
                             <NavigationMenuItem>
                               <Link href={`/mensagens/${session?.user?.id}`} legacyBehavior passHref>  
                                 <NavigationMenuLink className={navigationMenuTriggerStyle()}>                        
-                                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" className="w-6 h-6">
+                                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" className="h-6 w-6">
                                     <path stroke-linecap="round" stroke-linejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3.32 8.91a2.25 2.25 0 01-1.07-1.916V6.75" />
                                   </svg>
                                 </NavigationMenuLink>
@@ -193,7 +193,7 @@ export function SiteHeader() {
                             <NavigationMenuItem>
                               <Link href={`/mensagens/${session?.user?.id}`} legacyBehavior passHref>                  
                                 <NavigationMenuLink className={navigationMenuTriggerStyle()}>                        
-                                  {<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" className="w-6 h-6">
+                                  {<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" className="h-6 w-6">
                                     <path stroke-linecap="round" stroke-linejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3.32 8.91a2.25 2.25 0 01-1.07-1.916V6.75" />
                                   </svg>}
                                 </NavigationMenuLink>
@@ -290,7 +290,7 @@ export function SiteHeader() {
                               poder fornecer os seus serviços a milhares de clientes!
                             </div>                          
                             <br />
-                            <div className="flex flex-col justify-center content-center text-center mt-4 mb-4">
+                            <div className="my-4 flex flex-col content-center justify-center text-center">
                               <AlertDialogTitle>Autenticar com conta Google</AlertDialogTitle>
                               {providers && Object.values(providers).map((provider) => (
                                     <Button type="button"
@@ -379,7 +379,7 @@ export function SiteHeader() {
               
             </div>
             {/* Mobile Navigation */}
-            <div className="sm:hidden flex relative">
+            <div className="relative flex sm:hidden">
               {session?.user ? (
                 <>                
                 <NavigationMenu>
@@ -392,12 +392,12 @@ export function SiteHeader() {
                     </NavigationMenuItem>                  
                   </NavigationMenuList>
                   {toggleDropdown && (
-                  <div className="absolute right-0 top-full mt-3 w-full p-5 rounded-lg bg-black min-w-[210px] flex flex-col gap-2 justify-end items-end">
-                    <Link href={"/perfil"} className="text-sm font-inter text-gray-700 hover:text-gray-500 font-medium" onClick={() => setToggleDropdown(false)} href="#" legacyBehavior passHref>
+                  <div className="absolute right-0 top-full mt-3 flex w-full min-w-[210px] flex-col items-end justify-end gap-2 rounded-lg bg-black p-5">
+                    <Link href={"/perfil"} className="font-inter text-sm font-medium text-gray-700 hover:text-gray-500" onClick={() => setToggleDropdown(false)} href="#" legacyBehavior passHref>
                       Perfil
                     </Link>
-                    <Link className="text-sm font-inter text-gray-700 hover:text-gray-500 font-medium" onClick={() => setToggleDropdown(false)} href="#" legacyBehavior passHref>
-                      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" className="w-6 h-6">
+                    <Link className="font-inter text-sm font-medium text-gray-700 hover:text-gray-500" onClick={() => setToggleDropdown(false)} href="#" legacyBehavior passHref>
+                      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" className="h-6 w-6">
                                     <path stroke-linecap="round" stroke-linejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3.32 8.91a2.25 2.25 0 01-1.07-1.916V6.75" />
                                   </svg>
                     </Link>
@@ -426,7 +426,7 @@ export function SiteHeader() {
                                 poder fornecer os seus serviços a milhares de clientes!
                               </div>                          
                               <br />
-                              <div className="flex flex-col justify-center content-center text-center mt-4 mb-4">
+                              <div className="my-4 flex flex-col content-center justify-center text-center">
                                 <AlertDialogTitle>Autenticar com conta Google</AlertDialogTitle>
                                 
                                 {providers && Object.values(providers).map((provider) => (
