@@ -131,7 +131,7 @@ function ContactosInfo() {
         }
       });      
     }
-    if(session?.user?.id) fetchPosts();   
+    fetchPosts();   
   }
   function profissionalInfo() {
     router.push('/profissionalInfo');
