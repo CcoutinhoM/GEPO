@@ -40,7 +40,7 @@ import { ToastAction } from "@/components/ui/toast"
 import { useToast } from "@/components/ui/use-toast"
 import { useRouter, usePathname } from 'next/navigation';
 
-function DetalhesServicos({ params: string }) {
+function DetalhesServicos({ params }) {
   const {data: session } = useSession();
   const router = useRouter();
   const [servicoUnico, setServicoUnico] = React.useState([]);
