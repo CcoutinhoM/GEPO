@@ -93,12 +93,12 @@ function ContactosInfo() {
   const [processando, setProcessando] = React.useState(false);
 
   React.useEffect(() => {
-    if (session && session?.user.id) {
+    if (session?.user.id) {
       setIdGeral(session?.user.id)
     }
     const timer = setTimeout(() => setProgress(100), 100)
     return () => clearTimeout(timer)
-  }, [])
+  }, [session])
 
   function contactoInfo(idddd: any) {
     setProcessando(true);
