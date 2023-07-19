@@ -72,21 +72,21 @@ function DetalhesServicos({ params }: any) {
                 <CardContent>
                   
                       <div key={autor['creator']['_id']} className='flex flex-row content-center justify-center rounded-full text-center'>
-                        <Image className='rounded-full' width={100} height={100} src={autor[0].creator.image} alt="Perfil Image" />              
+                        <Image className='rounded-full' width={100} height={100} src={autor['creator']['image']} alt="Perfil Image" />              
                         </div>
                         <br />
                         <div className='text-center'>
-                          <p>{autor[0].creator.username}</p>
+                          <p>{autor['creator']['username']}</p>
                         </div>
                         <div className='text-center'>
-                          <p>{autor[0].creator.email}</p>
+                          <p>{autor['creator']['email']}</p>
                       </div>
                     
                               
                 </CardContent>
                 <CardFooter className="flex justify-end">
                   {/* <Button variant="outline">Cancel</Button> */}
-                  <Button  onClick={() => router.push(`/perfil_fornecedor/${autor.creator._id}`)} variant="outline">Ver Perfil</Button>
+                  <Button  onClick={() => router.push(`/perfil_fornecedor/${autor['creator']['_id']}`)} variant="outline">Ver Perfil</Button>
                 </CardFooter>
               </>
                 )
