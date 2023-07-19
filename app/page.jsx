@@ -61,9 +61,9 @@ export default function IndexPage() {
           servicoAutor.map((servicos) => (
             <Card className="w-[250px]">
               <CardHeader>
-                <CardTitle>{servicos.nomeSerico}</CardTitle>
+                <CardTitle>{servicos["nomeSerico"]}</CardTitle>
                 <CardDescription>
-                  Categoria: {servicos.categoria.toUpperCase()}
+                  Categoria: {servicos["categoria"]}
                 </CardDescription>
               </CardHeader>
               <CardContent>
@@ -72,7 +72,7 @@ export default function IndexPage() {
                     className="rounded-md"
                     width={60}
                     height={60}
-                    src={servicos.imagem}
+                    src={servicos["imagem"]}
                     alt="Perfil Image"
                   />
                 </div>
@@ -80,13 +80,13 @@ export default function IndexPage() {
               <CardFooter className="flex justify-between">
                 <Button
                   onClick={() =>
-                    router.push(`/detalhesServico/${servicos._id}`)
+                    router.push(`/detalhesServico/${servicos["_id"]}`)
                   }
                   variant="outline"
                 >
                   Detalhes
                 </Button>
-                Preço: {servicos.precoServico}
+                Preço: {servicos["precoServico"]}
               </CardFooter>
             </Card>
           ))}

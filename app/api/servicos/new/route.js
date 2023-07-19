@@ -16,7 +16,7 @@ export const POST = async (req, res) => {
             imagem,
             categoria,
         });
-
+ 
         await newEvento.save();
         return new Response(JSON.stringify(newEvento), { status: 201 })
     } catch (error) {

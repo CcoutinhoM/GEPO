@@ -87,26 +87,28 @@ const components: { title: string; href: string; description: string }[] = [
 ]
 
 export function SiteHeader() {
-  const { data: session } = useSession()
-  const [providers, setProviders] = useState()
+  const { data: session }: any = useSession()
+  const [providers, setProviders] = useState<any | null>(null)
   const [toggleDropdown, setToggleDropdown] = useState(false)
   const [dadosFornecedor, setDadosFornecedor] = React.useState([])
 
   React.useEffect(() => {
     const fetchPosts = async () => {
       const response = await fetch(
-        `/api/servicosTodos/${session?.user?.id}/servicos`
+        `/api/servicosTodos/${
+          session?.["user"]["id"] ? session?.["user"]["id"] : ""
+        }/servicos`
       )
       const data = await response.json()
       setDadosFornecedor(data)
     }
-    if (session?.user?.id) fetchPosts()
-  }, [session?.user?.id])
+    if (session?.["user"]["id"]) fetchPosts()
+  }, [session])
 
   useEffect(() => {
     const setUpProviders = async () => {
-      const response = await getProviders()
-      setProviders(response)
+      const response2 = await getProviders()
+      setProviders(response2)
     }
     setUpProviders()
   }, [])
@@ -241,7 +243,7 @@ export function SiteHeader() {
                       <NavigationMenuItem>
                         <Link href="#" legacyBehavior passHref>
                           <NavigationMenuLink
-                            onClick={signOut}
+                            onClick={() => signOut()}
                             className={navigationMenuTriggerStyle()}
                           >
                             Sair
@@ -342,16 +344,18 @@ export function SiteHeader() {
                                     Autenticar com conta Google
                                   </AlertDialogTitle>
                                   {providers &&
-                                    Object.values(providers).map((provider) => (
-                                      <Button
-                                        type="button"
-                                        key={provider.name}
-                                        onClick={() => signIn(provider.id)}
-                                        variant="outline"
-                                      >
-                                        Google
-                                      </Button>
-                                    ))}
+                                    Object.values(providers).map(
+                                      (provider: any) => (
+                                        <Button
+                                          type="button"
+                                          key={provider["name"]}
+                                          onClick={() => signIn(provider["id"])}
+                                          variant="outline"
+                                        >
+                                          Google
+                                        </Button>
+                                      )
+                                    )}
                                 </div>
                                 <Tabs defaultValue="account">
                                   <TabsList className="grid w-full grid-cols-2">
@@ -501,7 +505,7 @@ export function SiteHeader() {
                           </svg>
                         </Link>
                         <Button
-                          onClick={signOut}
+                          onClick={() => signOut()}
                           className="mt-5 w-full"
                           variant="outline"
                         >
@@ -539,16 +543,18 @@ export function SiteHeader() {
                                 </AlertDialogTitle>
 
                                 {providers &&
-                                  Object.values(providers).map((provider) => (
-                                    <Button
-                                      type="button"
-                                      key={provider.name}
-                                      onClick={() => signIn(provider.id)}
-                                      variant="outline"
-                                    >
-                                      Google
-                                    </Button>
-                                  ))}
+                                  Object.values(providers).map(
+                                    (provider: any) => (
+                                      <Button
+                                        type="button"
+                                        key={provider["name"]}
+                                        onClick={() => signIn(provider["id"])}
+                                        variant="outline"
+                                      >
+                                        Google
+                                      </Button>
+                                    )
+                                  )}
                               </div>
                               <Tabs defaultValue="account">
                                 <TabsList className="grid w-full grid-cols-2">

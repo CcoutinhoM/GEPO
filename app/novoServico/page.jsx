@@ -118,13 +118,13 @@ function NovoServico() {
       const response = await fetch("api/servicos/new", {
         method: "POST",
         body: JSON.stringify({
-          userId: session?.use.id,
+          userId: session?.user.id,
           nomeSerico,
           precoServico,
           tempoMinimo,
           tempoMaximo,
           descricao,
-          imagem: session?.user?.image,
+          imagem: session?.user.image,
           categoria: value,
         }),
       })

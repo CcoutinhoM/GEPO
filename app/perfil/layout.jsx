@@ -24,33 +24,31 @@ import {
   SelectValue,
 } from "@/components/ui/select"
 
-function PerfilFornecedor({ params }) {
+function LayOut() {
   const { data: session } = useSession()
   const router = useRouter()
   const [dadosFornecedor, setDadosFornecedor] = React.useState([])
   const [meusServicos, setMeusServicos] = React.useState([])
 
   React.useEffect(() => {
-    try {
-      const fetchPosts = async () => {
-        const response = await fetch(`/api/fornecedores/${params?.id}`)
-        const data = await response.json()
-        setDadosFornecedor(data)
-      }
-      fetchPosts()
-    } catch (error) {
-      console.log(error)
+    const fetchPosts = async () => {
+      const response = await fetch(
+        `/api/servicosTodos/${session?.user.id}/servicos`
+      )
+      const data = await response.json()
+      setDadosFornecedor(data)
     }
-  }, [params?.id])
+    if (session?.user.id) fetchPosts()
+  }, [session?.user.id])
 
   React.useEffect(() => {
     const fetchPosts = async () => {
-      const response = await fetch(`/api/servicos/${params?.id}`)
+      const response = await fetch(`/api/servicos/${session?.user.id}`)
       const data = await response.json()
       setMeusServicos(data)
     }
-    fetchPosts()
-  }, [params?.id])
+    if (session?.user.id) fetchPosts()
+  }, [session?.user.id])
 
   function perfilInfo() {
     router.push("/infoPessoal")
@@ -65,23 +63,26 @@ function PerfilFornecedor({ params }) {
           </CardHeader>
           <CardContent>
             {dadosFornecedor.length > 0 &&
-              dadosFornecedor.map((fornecedor) => (
+              dadosFornecedor.map((autor) => (
                 <>
-                  <div className="flex flex-row content-center justify-center rounded-full text-center">
+                  <div
+                    key={autor["creator"]["_id"]}
+                    className="flex flex-row content-center justify-center rounded-full text-center"
+                  >
                     <Image
                       className="rounded-full"
                       width={100}
                       height={100}
-                      src={fornecedor.creator.image}
+                      src={autor["creator"]["image"]}
                       alt="Perfil Image"
                     />
                   </div>
                   <br />
                   <div className="text-center">
-                    <p>{fornecedor.creator.name}</p>
+                    <p>{autor["creator"]["username"]}</p>
                   </div>
                   <div className="text-center">
-                    <p>{fornecedor.creator.email}</p>
+                    <p>{autor["creator"]["email"]}</p>
                   </div>
                 </>
               ))}
@@ -105,10 +106,11 @@ function PerfilFornecedor({ params }) {
                   <>
                     <div>
                       <p>
-                        Nome Completo: {fornecdor.nome} {fornecdor.apelido}
+                        Nome Completo: {fornecdor["nome"]}{" "}
+                        {fornecdor["apelido"]}
                       </p>
                       <br />
-                      <p>Nome Público: {fornecdor.nomePublico}</p>
+                      <p>Nome Público: {fornecdor["nomePublico"]}</p>
                     </div>
                   </>
                 ))}
@@ -127,9 +129,9 @@ function PerfilFornecedor({ params }) {
                 {dadosFornecedor.map((fornecdor) => (
                   <>
                     <div>
-                      <p>Nome do Serviço: {fornecdor.ocupacao.toUpperCase()}</p>
+                      <p>Nome do Serviço: {fornecdor["ocupacao"]}</p>
                       <br />
-                      <p>Experiência: {fornecdor.experiencia.toUpperCase()}</p>
+                      <p>Experiência: {fornecdor["experiencia"]}</p>
                     </div>
                   </>
                 ))}
@@ -150,13 +152,13 @@ function PerfilFornecedor({ params }) {
                 {dadosFornecedor.map((fornecdor) => (
                   <>
                     <div>
-                      <p>País de Formação: {fornecdor.educacaoPais}</p>
+                      <p>País de Formação: {fornecdor["educacaoPais"]}</p>
                       <br />
-                      <p>Grau: {fornecdor.grauAdquirido}</p>
+                      <p>Grau: {fornecdor["grauAdquirido"]}</p>
                       <br />
-                      <p>Instituição: {fornecdor.nomeInstituicao}</p>
+                      <p>Instituição: {fornecdor["nomeInstituicao"]}</p>
                       <br />
-                      <p>Data: {fornecdor.dataGraduacao}</p>
+                      <p>Data: {fornecdor["dataGraduacao"]}</p>
                     </div>
                   </>
                 ))}
@@ -175,9 +177,9 @@ function PerfilFornecedor({ params }) {
                 {dadosFornecedor.map((fornecdor) => (
                   <>
                     <div>
-                      <p>Instituição: {fornecdor.certificadoPor}</p>
+                      <p>Instituição: {fornecdor["certificadoPor"]}</p>
                       <br />
-                      <p>Data: {fornecdor.dataCertificado}</p>
+                      <p>Data: {fornecdor["dataCertificado"]}</p>
                     </div>
                   </>
                 ))}
@@ -207,9 +209,9 @@ function PerfilFornecedor({ params }) {
                         <>
                           <Card className="w-[250px]">
                             <CardHeader>
-                              <CardTitle>{servicos.nomeSerico}</CardTitle>
+                              <CardTitle>{servicos["nomeSerico"]}</CardTitle>
                               <CardDescription>
-                                Categoria: {servicos.categoria.toUpperCase()}
+                                Categoria: {servicos["categoria"]}
                               </CardDescription>
                             </CardHeader>
                             <CardContent>
@@ -218,7 +220,7 @@ function PerfilFornecedor({ params }) {
                                   className="rounded-md"
                                   width={60}
                                   height={60}
-                                  src={servicos.imagem}
+                                  src={servicos["imagem"]}
                                   alt="Perfil Image"
                                 />
                               </div>
@@ -227,14 +229,14 @@ function PerfilFornecedor({ params }) {
                               <Button
                                 onClick={() =>
                                   router.push(
-                                    `/detalhesServico/${servicos._id}`
+                                    `/detalhesServico/${servicos["_id"]}`
                                   )
                                 }
                                 variant="outline"
                               >
                                 Detalhes
                               </Button>
-                              Preço: {servicos.precoServico}
+                              Preço: {servicos["precoServico"]}
                             </CardFooter>
                           </Card>
                         </>
@@ -280,4 +282,4 @@ function PerfilFornecedor({ params }) {
   )
 }
 
-export default PerfilFornecedor
+export default LayOut

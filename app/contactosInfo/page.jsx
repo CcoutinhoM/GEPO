@@ -115,24 +115,24 @@ function ContactosInfo() {
         `/api/servicosTodos/${session?.user?.id}/servicos`
       )
       const data = await response.json()
-      data.map((fonecedor: any) => {
+      data.map(({ fonecedor }) => {
         try {
-          const response2 = fetch(`api/rota/${fonecedor._id}`, {
+          const response2 = fetch(`api/rota/${fonecedor?._id}`, {
             method: "PATCH",
             body: JSON.stringify({
               userId: session?.user?.id,
-              nome: fonecedor.nome,
-              apelido: fonecedor.apelido,
-              nomePublico: fonecedor.nomePublico,
-              descricao: fonecedor.descricao,
+              nome: fonecedor?.nome,
+              apelido: fonecedor?.apelido,
+              nomePublico: fonecedor?.nomePublico,
+              descricao: fonecedor?.descricao,
               ocupacao: value,
               experiencia: valueExperiencia,
-              educacaoPais: fonecedor.educacaoPais,
-              grauAdquirido: fonecedor.grauAdquirido,
-              nomeInstituicao: fonecedor.nomeInstituicao,
-              dataGraduacao: fonecedor.dataGraduacao,
-              certificadoPor: fonecedor.certificadoPor,
-              dataCertificado: fonecedor.dataCertificado,
+              educacaoPais: fonecedor?.educacaoPais,
+              grauAdquirido: fonecedor?.grauAdquirido,
+              nomeInstituicao: fonecedor?.nomeInstituicao,
+              dataGraduacao: fonecedor?.dataGraduacao,
+              certificadoPor: fonecedor?.certificadoPor,
+              dataCertificado: fonecedor?.dataCertificado,
               telefone,
             }),
           })
