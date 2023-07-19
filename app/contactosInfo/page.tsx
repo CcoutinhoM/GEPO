@@ -101,7 +101,7 @@ function ContactosInfo() {
     const fetchPosts = async () => {
       const response = await fetch(`/api/servicosTodos/${idddd}/servicos`);
       const data = await response.json();
-      data.map((fonecedor) => {
+      data.map((fonecedor: any) => {
         try {
           async function jfasda() {
             const response2 = await fetch(`api/rota/${fonecedor._id}`, {
