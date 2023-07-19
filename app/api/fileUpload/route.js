@@ -46,6 +46,6 @@ export default async function handle(req, res) {
     return res.json({links});
 }
 
-export const config = {
+export const runtime = {
     api: {bodyParser: false}
 }
