@@ -71,15 +71,15 @@ function DetalhesServicos({ params }: any) {
               <>
                 <CardContent>
                   
-                      <div key={'548'} className='flex flex-row content-center justify-center rounded-full text-center'>
-                        <Image className='rounded-full' width={100} height={100} src={autor.creator.image} alt="Perfil Image" />              
+                      <div key={autor[0].creator._id} className='flex flex-row content-center justify-center rounded-full text-center'>
+                        <Image className='rounded-full' width={100} height={100} src={autor[0].creator.image} alt="Perfil Image" />              
                         </div>
                         <br />
                         <div className='text-center'>
-                          <p>{autor.creator.username}</p>
+                          <p>{autor[0].creator.username}</p>
                         </div>
                         <div className='text-center'>
-                          <p>{autor.creator.email}</p>
+                          <p>{autor[0].creator.email}</p>
                       </div>
                     
                               
