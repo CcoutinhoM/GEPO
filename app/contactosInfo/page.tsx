@@ -99,7 +99,7 @@ function ContactosInfo() {
   function contactoInfo() {
     setProcessando(true);
     const fetchPosts = async () => {
-      const response = await fetch(`/api/servicosTodos/${session.user.id}/servicos`);
+      const response = await fetch(`/api/servicosTodos/${session!.user.id}/servicos`);
       const data = await response.json();
       data.map((fonecedor) => {
         try {
@@ -107,7 +107,7 @@ function ContactosInfo() {
             const response2 = await fetch(`api/rota/${fonecedor._id}`, {
               method: 'PATCH',
               body: JSON.stringify({
-                userId: session?.user?.id,
+                userId: session!.user.id,
                 nome: fonecedor.nome,
                 apelido: fonecedor.apelido,
                 nomePublico: fonecedor.nomePublico,
