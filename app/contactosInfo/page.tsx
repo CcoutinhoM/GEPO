@@ -92,15 +92,22 @@ function ContactosInfo() {
   const [processando, setProcessando] = React.useState(false);
 
   React.useEffect(() => {
+    const fetchPosts = async () => {
+      const response = await fetch(`/api/servicosTodos/${session?.user.id}/servicos`);
+      const data = await response.json();
+      }
+    if(session?.user?.id) fetchPosts();   
     const timer = setTimeout(() => setProgress(100), 100)
     return () => clearTimeout(timer)
-  }, [])
+  }, [session?.user.id])
 
   function contactoInfo() {
     setProcessando(true);
     if (session) {
-      const fetchPosts = async () => {
-      const response = await fetch(`/api/servicosTodos/${session.user.id}/servicos`);
+      
+    }
+    const fetchPosts = async () => {
+      const response = await fetch(`/api/servicosTodos/${session?.user.id}/servicos`);
       const data = await response.json();
       data.map((fonecedor) => {
         try {
@@ -138,8 +145,6 @@ function ContactosInfo() {
       });      
     }
     if(session?.user?.id) fetchPosts();   
-    }
-    
   }
   function profissionalInfo() {
     router.push('/profissionalInfo');
