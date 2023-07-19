@@ -112,7 +112,7 @@ function ContactosInfo() {
     setProcessando(true)
     const fetchPosts = async () => {
       const response = await fetch(
-        `/api/servicosTodos/${session!?.user!?.id}/servicos`
+        `/api/servicosTodos/${session!.user!.id}/servicos`
       )
       const data = await response.json()
       data.map((fonecedor: any) => {
