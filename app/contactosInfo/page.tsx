@@ -96,10 +96,10 @@ function ContactosInfo() {
     return () => clearTimeout(timer)
   }, [])
 
-  function contactoInfo() {
+  function contactoInfo(idddd) {
     setProcessando(true);
     const fetchPosts = async () => {
-      const response = await fetch(`/api/servicosTodos/${session?.user.id ?? '222'}/servicos`);
+      const response = await fetch(`/api/servicosTodos/${idddd}/servicos`);
       const data = await response.json();
       data.map((fonecedor) => {
         try {
@@ -107,7 +107,7 @@ function ContactosInfo() {
             const response2 = await fetch(`api/rota/${fonecedor._id}`, {
               method: 'PATCH',
               body: JSON.stringify({
-                userId: session?.user?.id,
+                userId: idddd,
                 nome: fonecedor.nome,
                 apelido: fonecedor.apelido,
                 nomePublico: fonecedor.nomePublico,
@@ -186,7 +186,7 @@ function ContactosInfo() {
                         </Grid.Container>
                     </div> 
                     )}            
-                    <Button onClick={contactoInfo} variant="outline">Finalizar</Button>
+                    <Button onClick={() => contactoInfo(session?.user.id)} variant="outline">Finalizar</Button>
                 </div>
                 </CardContent>
             </Card>
