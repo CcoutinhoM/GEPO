@@ -92,22 +92,14 @@ function ContactosInfo() {
   const [processando, setProcessando] = React.useState(false);
 
   React.useEffect(() => {
-    const fetchPosts = async () => {
-      const response = await fetch(`/api/servicosTodos/${session?.user.id}/servicos`);
-      const data = await response.json();
-      }
-    if(session?.user?.id) fetchPosts();   
     const timer = setTimeout(() => setProgress(100), 100)
     return () => clearTimeout(timer)
-  }, [session?.user.id])
+  }, [])
 
   function contactoInfo() {
     setProcessando(true);
-    if (session) {
-      
-    }
     const fetchPosts = async () => {
-      const response = await fetch(`/api/servicosTodos/${session?.user.id}/servicos`);
+      const response = await fetch(`/api/servicosTodos/${session?.user?.id}/servicos`);
       const data = await response.json();
       data.map((fonecedor) => {
         try {
@@ -115,7 +107,7 @@ function ContactosInfo() {
             const response2 = await fetch(`api/rota/${fonecedor._id}`, {
               method: 'PATCH',
               body: JSON.stringify({
-                userId: session!.user.id,
+                userId: session?.user?.id,
                 nome: fonecedor.nome,
                 apelido: fonecedor.apelido,
                 nomePublico: fonecedor.nomePublico,
