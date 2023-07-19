@@ -27,7 +27,7 @@ export default function IndexPage() {
 
   const router = useRouter()
   const [servicoAutor, setServicoAutor] = React.useState([])
-
+  console.log(session)
   React.useEffect(() => {
     const fetchPosts = async () => {
       const response = await fetch(`/api/fornecedores/todos`)

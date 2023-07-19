@@ -1,14 +1,14 @@
 import "@/styles/globals.css"
 import { Metadata } from "next"
+import { Head } from "next/head"
 
 import { siteConfig } from "@/config/site"
 import { fontSans } from "@/lib/fonts"
 import { cn } from "@/lib/utils"
+import Provider from "@/components/Provider"
 import { SiteHeader } from "@/components/site-header"
 import { TailwindIndicator } from "@/components/tailwind-indicator"
 import { ThemeProvider } from "@/components/theme-provider"
-import Provider from "@/components/Provider"
-import { Head } from "next/head";
 
 export const metadata: Metadata = {
   title: {
@@ -36,7 +36,7 @@ export default function RootLayout({ children }: RootLayoutProps) {
     <>
       <html lang="en" suppressHydrationWarning>
         <head />
-        <body          
+        <body
           className={cn(
             "min-h-screen bg-background font-sans antialiased",
             fontSans.variable

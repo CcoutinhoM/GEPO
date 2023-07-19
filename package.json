@@ -39,7 +39,7 @@
     "lucide-react": "0.105.0-alpha.4",
     "mongoose": "^7.3.4",
     "multiparty": "^4.2.3",
-    "next": "13.4.5",
+    "next": "13.4.8",
     "next-auth": "^4.22.1",
     "next-themes": "^0.2.1",
     "primeicons": "^6.0.1",
