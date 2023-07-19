@@ -98,8 +98,9 @@ function ContactosInfo() {
 
   function contactoInfo() {
     setProcessando(true);
-    const fetchPosts = async () => {
-      const response = await fetch(`/api/servicosTodos/${session!.user.id}/servicos`);
+    if (session) {
+      const fetchPosts = async () => {
+      const response = await fetch(`/api/servicosTodos/${session.user.id}/servicos`);
       const data = await response.json();
       data.map((fonecedor) => {
         try {
@@ -137,6 +138,8 @@ function ContactosInfo() {
       });      
     }
     if(session?.user?.id) fetchPosts();   
+    }
+    
   }
   function profissionalInfo() {
     router.push('/profissionalInfo');
