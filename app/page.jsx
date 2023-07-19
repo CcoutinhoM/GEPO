@@ -37,14 +37,14 @@ export default function IndexPage() {
     fetchPosts()
   }, [])
   return (
-    <section className="container grid items-center gap-6 pb-8 pt-6 md:py-10">
+    <section className="container mt-4 grid items-center gap-6 pb-8 pt-6 md:py-10">
       <div className="flex max-w-[980px] flex-col items-start gap-2">
-        <h1 className="text-3xl font-extrabold leading-tight tracking-tighter md:text-4xl">
-          Deseja Fornecer e/ou Realizar Projectos?{" "}
+        <h1 className="max-w[60%] text-lg">
+          Deseja Fornecer e/ou Realizar Projectos?
           <br className="hidden sm:inline" />
           Então você está no local certo....
         </h1>
-        <p className="max-w-[700px] text-lg text-muted-foreground">
+        <p className="max-w-[20%] text-lg text-muted-foreground">
           Aqui, você encontrará uma plataforma abrangente que conecta pessoas
           com ideias e necessidades a profissionais talentosos capazes de
           transformar essas ideias em realidade.
@@ -56,10 +56,10 @@ export default function IndexPage() {
           Adicionados Recentimente
         </p>
       </div>
-      <div className="grid justify-center gap-4 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-4">
+      <div className="grid w-[10%] justify-center gap-4 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-4">
         {servicoAutor.length > 0 &&
           servicoAutor.map((servicos) => (
-            <Card className="w-[250px]">
+            <Card className="w-[150px]">
               <CardHeader>
                 <CardTitle>{servicos["nomeSerico"]}</CardTitle>
                 <CardDescription>
