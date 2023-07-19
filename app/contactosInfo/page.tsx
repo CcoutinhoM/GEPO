@@ -88,10 +88,14 @@ function ContactosInfo() {
   const [openExperiencia, setOpenExperiencia] = React.useState(false)
   const [value, setValue] = React.useState("")
   const [valueExperiencia, setValueExperiencia] = React.useState("")
+  const [idGeral, setIdGeral] = React.useState("")
   const [telefone, settelefone] = React.useState(''); 
   const [processando, setProcessando] = React.useState(false);
 
   React.useEffect(() => {
+    if (session && session?.user.id) {
+      setIdGeral(session?.user.id)
+    }
     const timer = setTimeout(() => setProgress(100), 100)
     return () => clearTimeout(timer)
   }, [])
@@ -181,7 +185,7 @@ function ContactosInfo() {
                         </Grid.Container>
                     </div> 
                     )}            
-                    <Button onClick={() => contactoInfo(session && session?.user.id)} variant="outline">Finalizar</Button>
+                    <Button onClick={() => contactoInfo(idGeral)} variant="outline">Finalizar</Button>
                 </div>
                 </CardContent>
             </Card>
