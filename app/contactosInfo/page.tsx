@@ -103,7 +103,7 @@ function ContactosInfo() {
       const data = await response.json();
       data.map((fonecedor: any) => {
         try {
-            const response2 = await fetch(`api/rota/${fonecedor._id}`, {
+            const response2 = fetch(`api/rota/${fonecedor._id}`, {
               method: 'PATCH',
               body: JSON.stringify({
                 userId: idddd,
