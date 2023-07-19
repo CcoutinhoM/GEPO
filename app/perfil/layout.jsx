@@ -56,7 +56,7 @@ function LayOut() {
   return (
     <div className="container mt-4 flex gap-4">
       <aside>
-        <Card className="mb-4 w-[350px]">
+        <Card className="mb-4 w-[350px] gap-4">
           <CardHeader>
             <CardTitle className="text-center">Dados da Conta</CardTitle>
             <CardDescription></CardDescription>
