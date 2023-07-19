@@ -57,7 +57,7 @@ function DetalhesServicos({ params }: any) {
       
     }
     fetchPosts();
-  }, [])
+  }, [params?.id])
   return (
      <div className="container mt-4 flex gap-4">
       <aside>
@@ -112,30 +112,30 @@ function DetalhesServicos({ params }: any) {
                         </CardHeader>
                         <CardContent>
                           <div className='flex flex-row content-center justify-center text-center'>
-                            <Image className='rounded-md' width={150} height={150} src={servico.imagem} alt="Perfil Image" />              
+                            <Image className='rounded-md' width={150} height={150} src={servico['imagem']} alt="Perfil Image" />              
                           </div>
                         </CardContent>
                         <CardFooter className="flex justify-between">
                           <div className='flex flex-row content-center justify-center gap-4 text-center'>
-                            <Image className='cursor-pointer rounded-md' width={30} height={30} src={servico.imagem} alt="Perfil Image" />
-                             <Image className='cursor-pointer rounded-md' width={30} height={30} src={servico.imagem} alt="Perfil Image" />
-                              <Image className='cursor-pointer rounded-md' width={30} height={30} src={servico.imagem} alt="Perfil Image" />            
+                            <Image className='cursor-pointer rounded-md' width={30} height={30} src={servico['imagem']} alt="Perfil Image" />
+                             <Image className='cursor-pointer rounded-md' width={30} height={30} src={servico['imagem']} alt="Perfil Image" />
+                              <Image className='cursor-pointer rounded-md' width={30} height={30} src={servico['imagem']} alt="Perfil Image" />            
                           </div>
                         </CardFooter>
                     </Card>
                     <Card className="w-[70%]">
                         <CardHeader>
-                          <CardTitle>{servico.nomeSerico}</CardTitle>
+                          <CardTitle>{servico['nomeSerico']}</CardTitle>
                           <CardDescription>
-                            Categoria: {servico.categoria}
+                            Categoria: {servico['categoria']}
                           </CardDescription>
                         </CardHeader>
                         <CardContent>
-                          {servico.descricao}
+                          {servico['descricao']}
                         </CardContent>
                         <CardFooter className="flex justify-between">
-                          <p>Tempo Minimo: {servico.tempoMinimo} Mes(es)</p>
-                          <p>Tempo: {servico.tempoMaximo} Mes(es)</p>
+                          <p>Tempo Minimo: {servico['tempoMinimo']} Mes(es)</p>
+                          <p>Tempo: {servico['tempoMaximo']} Mes(es)</p>
                         </CardFooter>
                     </Card>
               </div>    
