@@ -48,14 +48,9 @@ function InfoPessoal() {
   const [certificadoPor, setcertificadoPor] = React.useState('');
   const [dataCertificado, setdataCertificado] = React.useState('');
   const [telefone, settelefone] = React.useState('');
-  type Employee = {
-  id?: string;
-  name?: string;
-  email?: string;
-  image?: string;
-};
-  const session: Employee = {};
+
   React.useEffect(() => {
+    
     const timer = setTimeout(() => setProgress(33.34), 100)
     return () => clearTimeout(timer)
   }, [])
