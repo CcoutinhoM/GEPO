@@ -40,7 +40,7 @@ import { ToastAction } from "@/components/ui/toast"
 import { useToast } from "@/components/ui/use-toast"
 import { useRouter, usePathname } from 'next/navigation';
 
-function DetalhesServicos({ params: any }) {
+function DetalhesServicos({ params: string }) {
   const {data: session } = useSession();
   const router = useRouter();
   const [servicoUnico, setServicoUnico] = React.useState([]);
@@ -57,7 +57,7 @@ function DetalhesServicos({ params: any }) {
       
     }
     fetchPosts();
-  }, [params?.id])
+  }, [])
   return (
      <div className="container mt-4 flex gap-4">
       <aside>

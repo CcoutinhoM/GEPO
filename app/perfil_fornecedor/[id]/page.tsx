@@ -43,7 +43,7 @@ function PerfilFornecedor({ params: any }) {
             console.log(error)
         }
     
-  }, [params?.id])
+  }, [])
 
    React.useEffect(() => {
     const fetchPosts = async () => {
@@ -52,7 +52,7 @@ function PerfilFornecedor({ params: any }) {
       setMeusServicos(data);
     }
     fetchPosts();
-  }, [params?.id])
+  }, [])
 
 
   function perfilInfo() {

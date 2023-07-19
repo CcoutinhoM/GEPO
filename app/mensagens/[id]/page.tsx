@@ -60,8 +60,8 @@ function Mensagens({ params: any }) {
       setServicoAutor(data);
       
     }
-    if(session?.user?.id) fetchPosts();
-  }, [params?.id, session?.user?.id])
+    fetchPosts();
+  }, [])
   return (
      <div className="container mt-4 flex gap-4">
       <aside>
